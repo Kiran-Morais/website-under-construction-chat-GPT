@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Jonix Band.com - Under Construction</title>
+  <style>
+    body {
+      background-color: #222;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-top: 100px;
+    }
+
+    p {
+      font-size: 18px;
+    }
+
+    .countdown {
+      font-size: 24px;
+      margin-bottom: 50px;
+    }
+
+    .logo {
+  width: 70%;
+  /* height: 100px; */
+  margin-bottom: 20px;
+}
+
+    .credit {
+      font-size: 12px;
+      margin-top: 30px;
+    }
+
+    .credit a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: #222;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <img class="logo" src="The Jonix Band_Logo-05.png" alt="TheJONIXBand logo">
+  <h1>TheJonixBand.com</h1>
+  <p>We are currently under construction.</p>
+  <div class="countdown" id="countdown"></div>
+  
+  <div class="credit">
+    Developed and Maintained by <a href="https://heartinz.com">Heartinz Technologies Pvt Ltd</a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Countdown Timer
+    const countdownElement = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const currentDate = new Date();
+      const launchDate = new Date('2023-08-01'); // Update the launch date accordingly
+
+      const totalSeconds = (launchDate - currentDate) / 1000;
+
+      const days = Math.floor(totalSeconds / 3600 / 24);
+      const hours = Math.floor(totalSeconds / 3600) % 24;
+      const minutes = Math.floor(totalSeconds / 60) % 60;
+      const seconds = Math.floor(totalSeconds) % 60;
+
+      countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (totalSeconds <= 0) {
+        clearInterval(countdownInterval);
+        countdownElement.innerHTML = "Website is live!";
+      }
+    }
+
+    const countdownInterval = setInterval(updateCountdown, 1000);
+
+    // Particle Effect
+    particlesJS('particles-js', {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: '#fff'
+        },
+        shape: {
+          type: 'circle',
+          stroke: {
+            width: 0,
+            color: '#000000'
+          },
+          polygon: {
+            nb_sides: 5
+          },
+          image: {
+            src: 'https://cdn.jsdelivr.net/gh/orioncactus/particles.js/assets/img/github.svg',
+            width: 100,
+            height: 100
+          }
+        },
+        opacity: {
+          value: 0.5,
+          random: false,
+          anim: {
+            enable: false,
+            speed: 1,
+            opacity_min: 0.1,
+            sync: false
+          }
+        },
+        size: {
+          value: 3,
+          random: true,
+          anim: {
+            enable: false,
+            speed: 40,
+            size_min: 0.1,
+            sync: false
+          }
+        },
+        line_linked: {
+          enable: true,
+          distance: 150,
+          color: '#fff',
+          opacity: 0.4,
+          width: 1
+        },
+        move: {
+          enable: true,
+          speed: 6,
+          direction: 'none',
+          random: false,
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
+        }
+      },
+      interactivity: {
+        detect_on: 'canvas',
+        events: {
+          onhover: {
+            enable: true,
+            mode: 'repulse'
+          },
+          onclick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          grab: {
+            distance: 400,
+            line_linked: {
+              opacity: 1
+            }
+          },
+          bubble: {
+            distance: 400,
+            size: 40,
+            duration: 2,
+            opacity: 8,
+            speed: 3
+          },
+          repulse: {
+            distance: 200,
+            duration: 0.4
+          },
+          push: {
+            particles_nb: 4
+          },
+          remove: {
+            particles_nb: 2
+          }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+</body>
+</html>
